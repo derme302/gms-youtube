@@ -73,7 +73,7 @@ status = GMY_UNSTARTED;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gmy_create(480, 360, "XiuEEw8C9kw", false, false);
+            <string>gmy_create(480, 360, "XiuEEw8C9kw", false, true);
 video = true;
 </string>
           </argument>
