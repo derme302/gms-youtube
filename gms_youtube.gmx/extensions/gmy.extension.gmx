@@ -3,7 +3,7 @@
   <name>gmy</name>
   <version>1.0.0</version>
   <packageID></packageID>
-  <ProductID>F79C97955FD1AF4686EB4EF4EF90F0DB</ProductID>
+  <ProductID></ProductID>
   <date>30/10/17</date>
   <license>Free to use, also for commercial games.</license>
   <description></description>
@@ -52,10 +52,12 @@
           <name>gmy_create</name>
           <externalName>gmy_create</externalName>
           <kind>11</kind>
-          <help>gmy_create(player_width, player_height, player_video, autoplay, autodestroy)</help>
+          <help>gmy_create(x, y, player_width, player_height, player_video, autoplay, autodestroy)</help>
           <returnType>2</returnType>
-          <argCount>5</argCount>
+          <argCount>7</argCount>
           <args>
+            <arg>2</arg>
+            <arg>2</arg>
             <arg>2</arg>
             <arg>2</arg>
             <arg>1</arg>
