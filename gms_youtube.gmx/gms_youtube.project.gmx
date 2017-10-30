@@ -29,6 +29,9 @@
   <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\gmy_demo</object>
+  </objects>
   <rooms name="rooms">
     <room>rooms\rm_demo</room>
   </rooms>

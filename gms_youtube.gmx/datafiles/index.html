@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +36,11 @@
             }
             div.gm4html5_div_class
             {
-              margin: 0px;
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              margin-left: -512px;
+              margin-top: -384px;
               padding: 0px;
               border: 0px;
             }
@@ -76,12 +81,10 @@
             <canvas id="canvas" width="1024" height="768">
                <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
-        </div>
-
-        <div id="player"></div>
+        </div>        
 
         <!-- Load YouTube API -->
-        <script src="http://www.youtube.com/player_api"></script>     
+        <script type="text/javascript" src="http://www.youtube.com/player_api"></script>     
 
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/gms_youtube.js"></script>

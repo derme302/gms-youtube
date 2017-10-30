@@ -1,21 +1,39 @@
-// Define Variables
-var player;                                             // YouTube Player ID (Not Video ID!)                       
-var wrapper = document.createElement("div");            // Wrapper HTML Element        
-var canvas = document.getElementById("canvas");         // The HTML5 Canvas ID        
-var player_html = document.getElementById("player");    // The Player HTML element                
-var player_id = 0;                                      // Multiple Player Support, Future?
+var gmy_init = false;
+
+// Load the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 // Setup
-player_html.setAttribute("id",  "player_html");
-player_html.style.position = "absolute";
-player_html.style.left = "0px";
-player_html.style.top = "0px";
-canvas.parentNode.insertBefore(wrapper, canvas);
-wrapper.appendChild(canvas);
-wrapper.appendChild(player_html);
+function setup() { 
+    if (!gmy_init) {
+        // Define Variables
+        var player;                                             // YouTube Player ID (Not Video ID!)                       
+        var wrapper = document.createElement("div");            // Wrapper HTML Element        
+        var canvas = document.getElementById("canvas");         // The HTML5 Canvas ID        
+        var player_html = document.createElement("div");                 // The Player HTML element                
+        var player_id = 0;                                      // Multiple Player Support, Future?
+
+        // Setup Player HTML
+        player_html.setAttribute("id",  "player");
+        player_html.style.position = "absolute";
+        player_html.style.left = "0px";
+        player_html.style.top = "0px";
+        canvas.parentNode.insertBefore(wrapper, canvas);
+        wrapper.appendChild(canvas);
+        wrapper.appendChild(player_html);
+
+        // Don't run setup again
+        gmy_init = true;
+    }
+}
 
 
 function gmy_create(player_width, player_height, player_video, autoplay, autodestroy) {
+    setup();
+
     if (autoplay && autodestroy) {
         player = new YT.Player('player', {
             height: player_height,
