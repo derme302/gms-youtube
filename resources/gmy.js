@@ -61,7 +61,7 @@ function gmy_create(player_width, player_height, player_video, autoplay, autodes
             width: player_width,
             videoId: player_video,
             events: {
-                'onStateChange': onPlayerStateChange
+                'onReady': onPlayerReady,
             }
         });
     }
