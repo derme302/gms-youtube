@@ -33,8 +33,12 @@ function setup() {
 }
 
 
-function gmy_create(player_width, player_height, player_video, autoplay, autodestroy) {
+function gmy_create(x, y, player_width, player_height, player_video, autoplay, autodestroy) {
     setup();
+    
+    player_html = document.getElementById("player");
+    player_html.style.left = x + "px";
+    player_html.style.top = y + "px";
 
     if (autoplay && autodestroy) {
         player = new YT.Player('player', {

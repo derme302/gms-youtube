@@ -1,4 +1,6 @@
-var gmy_init = false;
+// Initiation Variables
+var gmy_init = false;       // True if GMY is setup
+var player_init = false;    // True if there is a YT Object
 
 // Load the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -31,8 +33,12 @@ function setup() {
 }
 
 
-function gmy_create(player_width, player_height, player_video, autoplay, autodestroy) {
+function gmy_create(x, y, player_width, player_height, player_video, autoplay, autodestroy) {
     setup();
+    
+    player_html = document.getElementById("player");
+    player_html.style.left = x + "px";
+    player_html.style.top = y + "px";
 
     if (autoplay && autodestroy) {
         player = new YT.Player('player', {
@@ -72,6 +78,9 @@ function gmy_create(player_width, player_height, player_video, autoplay, autodes
             videoId: player_video,
         });
     } 
+
+    // There is a YT Object
+    player_init = true; 
 }
 
 // If autoplay is not enabled this function can start the video
@@ -93,6 +102,7 @@ function gmy_stop() {
 function onPlayerStateChange(event) {        
     if(event.data == YT.PlayerState.ENDED) {            
         player.destroy();
+        player_init = false;
     }
 }
 
@@ -104,6 +114,9 @@ function onPlayerStateChange(event) {
 //    3 – buffering
 //    5 – video cued
 function gmy_get_state() {
-    return player.getPlayerState();
+    if (player_init)
+        return player.getPlayerState();
+    else
+        return YT.PlayerState.UNSTARTED;
 }
 
